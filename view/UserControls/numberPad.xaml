@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="Calc.view.UserControls.numberPad"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calc.view.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Button Grid.Column="0" Name="btnNum" Margin="1" Background="#5c5c5b"  Content="{Binding contentFill}" FontSize="{Binding sizeFill}" Foreground="White"/>
+</UserControl>
