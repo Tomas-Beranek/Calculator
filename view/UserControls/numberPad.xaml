@@ -6,5 +6,5 @@
              xmlns:local="clr-namespace:Calc.view.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
-    <Button Grid.Column="0" Name="btnNum" Margin="1" Background="#5c5c5b"  Content="{Binding contentFill}" FontSize="{Binding sizeFill}" Foreground="White"/>
+    <Button Grid.Column="0" Name="btnNum" Margin="0.5" Background="Gray"  Content="{Binding contentFill}" FontSize="{Binding sizeFill}" Foreground="White" Click="btnNum_Click"/>
 </UserControl>

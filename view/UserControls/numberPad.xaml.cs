@@ -61,5 +61,41 @@ namespace Calc.view.UserControls
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        private void btnNum_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            var window = Window.GetWindow(this) as MainWindow;
+            if(window.display.Text == "0" && !window.display.Text.Contains("."))
+            {
+                if (button.Content.ToString() == ".")
+                {
+                    window.display.Text += button.Content.ToString();
+                }
+                else
+                {
+                    window.display.Text = button.Content.ToString();
+                }
+                
+            }
+            else
+            {
+                if(window.display.Text.Length <= 15)
+                {
+                    if (window.display.Text != "0" && !window.display.Text.Contains(".") && button.Content.ToString() == ".")
+                    {
+                        window.display.Text += button.Content.ToString();
+                    }
+                    else if (button.Content.ToString() != ".")
+                    {
+                        window.display.Text += button.Content.ToString();
+                    }
+                }
+                
+                
+
+            }
+            
+            
+        }
     }
 }

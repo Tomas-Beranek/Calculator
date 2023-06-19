@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\beran\source\repos\Calc\App.xaml
-2970390568
+4-1562439327
 
-4-473235618
+61402813590
 1981827736222
-MainWindow.xaml;view\UserControls\numberPad.xaml;
+MainWindow.xaml;view\UserControls\numberPad.xaml;view\UserControls\rightColumnFunctions.xaml;view\UserControls\topRowFunctions.xaml;
 
 False
 

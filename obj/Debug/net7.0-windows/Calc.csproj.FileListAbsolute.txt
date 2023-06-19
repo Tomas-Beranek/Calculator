@@ -22,3 +22,7 @@ C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\ref\Calc.dll
 C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\view\UserControls\numberPad.g.cs
 C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\view\UserControls\numberPad.baml
+C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\view\UserControls\rightColumnFunctions.g.cs
+C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\view\UserControls\topRowFunctions.g.cs
+C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\view\UserControls\rightColumnFunctions.baml
+C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\view\UserControls\topRowFunctions.baml
