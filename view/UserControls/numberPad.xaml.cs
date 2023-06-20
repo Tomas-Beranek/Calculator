@@ -65,9 +65,9 @@ namespace Calc.view.UserControls
         {
             Button button = (Button)sender;
             var window = Window.GetWindow(this) as MainWindow;
-            if(window.display.Text == "0" && !window.display.Text.Contains("."))
+            if(window.display.Text == "0" && !window.display.Text.Contains(","))
             {
-                if (button.Content.ToString() == ".")
+                if (button.Content.ToString() == ",")
                 {
                     window.display.Text += button.Content.ToString();
                 }
@@ -81,13 +81,18 @@ namespace Calc.view.UserControls
             {
                 if(window.display.Text.Length <= 15)
                 {
-                    if (window.display.Text != "0" && !window.display.Text.Contains(".") && button.Content.ToString() == ".")
+                    if (window.display.Text != "0" && !window.display.Text.Contains(",") && button.Content.ToString() == ",")
                     {
                         window.display.Text += button.Content.ToString();
                     }
-                    else if (button.Content.ToString() != ".")
+                    else if (button.Content.ToString() != "," && !window._functionIsPressed)
                     {
                         window.display.Text += button.Content.ToString();
+                    }
+                    else if (button.Content.ToString() != "," && window._functionIsPressed)
+                    {
+                        window.display.Text = button.Content.ToString();
+                        window._functionIsPressed = false;
                     }
                 }
                 

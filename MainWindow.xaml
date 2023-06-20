@@ -85,7 +85,7 @@
                 <ColumnDefinition Width="25*" />
             </Grid.ColumnDefinitions>
             <UserControls:numberPad Grid.Column="0" ContentFill="0"/>
-            <UserControls:numberPad Grid.Column="1" ContentFill="."/>
+            <UserControls:numberPad Grid.Column="1" ContentFill=","/>
             <UserControls:rightColumnFunctions Grid.Column="3"  ContentFill="=" SizeFill="40" />
         </Grid>
 

@@ -61,5 +61,28 @@ namespace Calc.view.UserControls
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void btnTopFunc_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            var window = Window.GetWindow(this) as MainWindow;
+
+            switch (button.Content.ToString())
+            {
+                case "AC":
+                    window.display.Text = "0";
+                    window._baseNumber = 0;
+                    break;
+                case "±":
+                    window.display.Text = window.display.Text == "0" ? "0" : (Convert.ToDouble(window.display.Text) * -1).ToString();
+                    break;
+                case "%":
+                    window.display.Text = (Convert.ToDouble(window.display.Text) /100).ToString();
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 }
