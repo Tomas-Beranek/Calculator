@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calc.view.UserControls
 {
@@ -67,22 +56,31 @@ namespace Calc.view.UserControls
             Button button = (Button)sender;
             var window = Window.GetWindow(this) as MainWindow;
 
+            
+
             switch (button.Content.ToString())
             {
                 case "AC":
                     window.display.Text = "0";
-                    window._baseNumber = 0;
+                    DoMath._baseNumber = 0;
+                    DoMath._functionIsPressed = false;
+                    DoMath._function = "";
+                    DoMath._lastFunction = "";
                     break;
                 case "±":
                     window.display.Text = window.display.Text == "0" ? "0" : (Convert.ToDouble(window.display.Text) * -1).ToString();
                     break;
                 case "%":
-                    window.display.Text = (Convert.ToDouble(window.display.Text) /100).ToString();
+                    DoMath._functionIsPressed = true;
+                    DoMath._function = "%";
+                    DoMath.Count(window);
                     break;
 
                 default:
                     break;
             }
+
+            DoMath._isPressingNumbers = false;
         }
     }
 }

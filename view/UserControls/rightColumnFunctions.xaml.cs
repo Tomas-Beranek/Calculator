@@ -41,9 +41,6 @@ namespace Calc.view.UserControls
         }
 
 
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -56,17 +53,11 @@ namespace Calc.view.UserControls
             Button button = (Button)sender;
             var window = Window.GetWindow(this) as MainWindow;
 
-            switch (button.Content.ToString())
-            {
-                case "+":
-                    window._functionIsPressed = true;
-                    window.display.Text = (Convert.ToDecimal(window.display.Text) + window._baseNumber).ToString();
-                    window._baseNumber = Convert.ToDecimal(window.display.Text);
-                    break;
-                default:
-                    break;
-            }
+            DoMath._functionIsPressed = true;
+            DoMath._function = button.Content.ToString();
+            DoMath.Count(window);
 
+            DoMath._isPressingNumbers = false;
         }
     }
 }
