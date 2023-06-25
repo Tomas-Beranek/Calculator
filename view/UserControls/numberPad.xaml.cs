@@ -65,12 +65,12 @@ namespace Calc.view.UserControls
                 {
                     if (window.display.Text != "0" && !window.display.Text.Contains(",") && button.Content.ToString() == ",")
                         window.display.Text += button.Content.ToString();
-                    else if (button.Content.ToString() != "," && !DoMath._functionIsPressed)
+                    else if (button.Content.ToString() != "," && !DoMath._isPressingfunction)
                         window.display.Text += button.Content.ToString();
-                    else if (button.Content.ToString() != "," && DoMath._functionIsPressed)
+                    else if (button.Content.ToString() != "," && DoMath._isPressingfunction)
                     {
                         window.display.Text = button.Content.ToString();
-                        DoMath._functionIsPressed = false;
+                        DoMath._isPressingfunction = false;
                     }
                 }
             }

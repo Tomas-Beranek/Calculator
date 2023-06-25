@@ -53,9 +53,8 @@ namespace Calc.view.UserControls
             Button button = (Button)sender;
             var window = Window.GetWindow(this) as MainWindow;
 
-            DoMath._functionIsPressed = true;
-            DoMath._function = button.Content.ToString();
-            DoMath.Count(window);
+            DoMath._isPressingfunction = true;
+            DoMath.UpdateNumber(window, button.Content.ToString());
 
             DoMath._isPressingNumbers = false;
         }

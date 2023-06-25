@@ -1,137 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Calc
 {
     internal static class DoMath
     {
-        internal static decimal _baseNumber = 0;
 
-        internal static decimal _lastInsertedNumber = 0;
-        internal static bool _functionIsPressed = false;
+        internal static bool _isPressingfunction = false;
         internal static bool _isPressingNumbers = false;
-        
-        internal static string _function = "";
-        internal static string _lastFunction = "";
-        
 
+        internal static string _input = "";
 
-        public static void Count(MainWindow mainWindow)
+        public static void UpdateNumber(MainWindow mainWindow, string func)
         {
-            if (_isPressingNumbers)
+            if(_isPressingNumbers)
             {
-                _lastInsertedNumber = Convert.ToDecimal(mainWindow.display.Text);
-                UpdateNumber(mainWindow);
-                
-            }
-            else if(_functionIsPressed)
-            {
-                //if(_function == "—") { _function = "-"; }
-                mainWindow.displayHistory.Text = _baseNumber.ToString() + " " + _function + " ";
-            }
-
-            
-            
-        }
-        private static void UpdateHistory(MainWindow mainWindow)
-        {
-            mainWindow.displayHistory.Text = _baseNumber.ToString() + " " + _function + " ";
-
-            if (_isPressingNumbers)
-            {
-                if (_baseNumber != 0)
-                    mainWindow.displayHistory.Text = _baseNumber.ToString() + " " + _function + " " + mainWindow.display.Text;
+                if(_input == "")
+                {
+                    _input = mainWindow.display.Text + " " + func;
+                    mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
+                }
                 else
-                    mainWindow.displayHistory.Text = mainWindow.display.Text + " " + _function + " ";
+                {
+                    _input += " " + mainWindow.display.Text;
+                    mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
+                    mainWindow.display.Text = Result(_input);
+                    _input = mainWindow.display.Text + " " + func;
+                }
+               
+
+            }
+            else if (_isPressingfunction)
+            {
+                //_input = _input.Remove(_input.Length - 1, 1);
+                _input = ExtractNumericalPart(_input);
+                _input += func;
+                mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
+            }
+            
+        }
+        public static string Result(string input)
+        {
+            if (input.Contains("×")) { input = input.Replace("×", "*"); }
+            if (input.Contains("÷")) { input = input.Replace("÷", "/"); }
+            if (input.Contains("—")) { input = input.Replace("—", "-"); }
+
+            DataTable table = new DataTable();
+            MessageBox.Show(input); //TEST
+            table.Columns.Add("expression", typeof(string), input);
+            DataRow row = table.NewRow();
+            table.Rows.Add(row);
+
+            decimal result = Convert.ToDecimal(row["expression"]);
+            if (result % 1 == 0) { result = Math.Truncate(result); }
+
+            return result.ToString();
+        }
+
+
+        public static string historyDisplayCorrection(string input) 
+        {
+            if (input.Contains("—")) { return input.Replace("—", "-"); }
+            else { return input; }
+        }
+        public static string ExtractNumericalPart(string input)
+        {
+            Regex regex = new Regex(@"(-?\d+)");
+            Match match = regex.Match(input);
+
+            if (match.Success)
+            {
+                return match.Value;
             }
 
+            return string.Empty;
         }
-        private static void UpdateNumberWithLastFunction()
-        {
-            switch (_lastFunction)
-            {
-                case "+":
-                    _baseNumber += _lastInsertedNumber;
-                    DecimalZeroCHeck();
-                    break;
-                case "—":
-                    _baseNumber -= _lastInsertedNumber;
-                    DecimalZeroCHeck();
-                    break;
-                case "*":
-                    //code
-                    break;
-                case "/":
-                    //code
-                    break;
-                case "%":
-                    //code
-                    break;
-                default:
-                    break;
-            }
-        }
-        private static void UpdateNumber(MainWindow mainWindow) 
-        {
-            UpdateHistory(mainWindow);
-            switch (_function)
-            {
-                case "+":
-                    if (_lastFunction == "+" || _lastFunction == "")
-                    {
-                        _baseNumber += _lastInsertedNumber;
-                        DecimalZeroCHeck();
-                        mainWindow.display.Text = _baseNumber.ToString();
-                        _lastFunction = _function;
-                    }
-                    else
-                    {
-                        UpdateNumberWithLastFunction();
-                        DecimalZeroCHeck();
-                        mainWindow.display.Text = _baseNumber.ToString();
-                    }
-                    
-                    break;
-                case "—":
-                    if(_baseNumber == 0) { _baseNumber = _lastInsertedNumber; }
-                    else if(_lastFunction == "—" || _lastFunction == "")
-                    {
-                        _baseNumber -= _lastInsertedNumber;
-                        DecimalZeroCHeck();
-                        mainWindow.display.Text = _baseNumber.ToString();
-                        _lastFunction = _function;
-                    }
-                    else
-                    {
-                        UpdateNumberWithLastFunction();
-                        DecimalZeroCHeck();
-                        mainWindow.display.Text = _baseNumber.ToString();
-                    }
-                    break;
-                case "*":
-                    //code
-                    break;
-                case "/":
-                    //code
-                    break;
-                case "%":
-                    //code
-                    break;
-                case "=":
-                    //code
-                    break;
-            }
 
-            DecimalZeroCHeck();
-        }
-        private static decimal DecimalZeroCHeck()
-        {
-            if (_baseNumber % 1 == 0) { _baseNumber = Math.Truncate(_baseNumber); }
-            return _baseNumber;
-        }
+
+
     }
+
+    
 }

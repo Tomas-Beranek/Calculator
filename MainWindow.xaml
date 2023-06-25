@@ -24,7 +24,7 @@
                      BorderThickness="0" 
                      Background="Transparent" 
                      Margin="25" 
-                     Text="0" 
+                     Text="" 
                      Foreground="White" 
                      FontSize="90" 
                      FontWeight="Light"/>

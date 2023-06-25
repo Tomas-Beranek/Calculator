@@ -62,18 +62,22 @@ namespace Calc.view.UserControls
             {
                 case "AC":
                     window.display.Text = "0";
-                    DoMath._baseNumber = 0;
-                    DoMath._functionIsPressed = false;
-                    DoMath._function = "";
-                    DoMath._lastFunction = "";
+                    window.displayHistory.Text = "";
+                    DoMath._isPressingfunction = false;
+                    DoMath._input = "";
                     break;
                 case "±":
-                    window.display.Text = window.display.Text == "0" ? "0" : (Convert.ToDouble(window.display.Text) * -1).ToString();
+                    if (window.display.Text != "0")
+                    {
+                        DoMath._input = (Convert.ToDouble(window.display.Text) * -1).ToString();
+                        MessageBox.Show(DoMath._input); //TEST
+                        window.display.Text = DoMath._input;
+                    }
+                    
                     break;
                 case "%":
-                    DoMath._functionIsPressed = true;
-                    DoMath._function = "%";
-                    DoMath.Count(window);
+                    DoMath._isPressingfunction = true;
+                    DoMath.UpdateNumber(window, "%");
                     break;
 
                 default:
