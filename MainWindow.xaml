@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Calc"
         xmlns:UserControls="clr-namespace:Calc.view.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="400" Background="#2b2b2b" MinHeight="300" MinWidth="200">
+        Title="MainWindow" Height="550" Width="400" Background="#2b2b2b" MinHeight="450" MinWidth="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
@@ -51,8 +51,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <UserControls:topRowFunctions Grid.Column="0" ContentFill="AC" SizeFill="30" />
-            <UserControls:topRowFunctions Grid.Column="1" ContentFill="±" SizeFill="35" />
+            <UserControls:topRowFunctions Grid.Column="0" ContentFill="AC" SizeFill="25" />
+            <UserControls:topRowFunctions Grid.Column="1" ContentFill="±" SizeFill="35"  />
             <UserControls:topRowFunctions Grid.Column="2" ContentFill="%"/>
             <UserControls:rightColumnFunctions Grid.Column="3"  ContentFill="÷" SizeFill="40" />
         </Grid>
@@ -78,7 +78,7 @@
             <UserControls:numberPad Grid.Column="0" ContentFill="4"/>
             <UserControls:numberPad Grid.Column="1" ContentFill="5"/>
             <UserControls:numberPad Grid.Column="2" ContentFill="6" />
-            <UserControls:rightColumnFunctions Grid.Column="3"  ContentFill="—"/>
+            <UserControls:rightColumnFunctions Grid.Column="3"  ContentFill="−" SizeFill="40"/>
         </Grid>
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>

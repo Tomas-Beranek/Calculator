@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\beran\source\repos\Calc\obj\Debug\net7.0-windows\
+C:\Users\tomas.beranek\Source\Repos\Tomas-Beranek\Calculator\obj\Debug\net7.0-windows\
 Calc
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\beran\source\repos\Calc\App.xaml
+C:\Users\tomas.beranek\Source\Repos\Tomas-Beranek\Calculator\App.xaml
 4-1562439327
 
 7-1338267605
-1981827736222
+1981871740104
 MainWindow.xaml;view\UserControls\numberPad.xaml;view\UserControls\rightColumnFunctions.xaml;view\UserControls\topRowFunctions.xaml;
 
 False

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BcZWseoxlIqT4Cc6cKLte6mdEV1IOLxzNEwmE4HeTSvhHr5tU+bmzPIFBdKQD5NtIrKIeOQECZWpu/aTwO2M/A==",
+  "dgSpecHash": "md+x8zZLM/Vz1Nrkba5opsWYzQXKCimTg8bI2d073zgJ2ICmp3x7Gmd7DEooNWgYP84g+xRl2Zv3RYzgentRaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\beran\\source\\repos\\Calc\\Calc.csproj",
+  "projectFilePath": "C:\\Users\\tomas.beranek\\Source\\Repos\\Tomas-Beranek\\Calculator\\Calc.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
