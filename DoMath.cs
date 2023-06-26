@@ -19,32 +19,67 @@ namespace Calc
         internal static bool _isPressingNumbers = false;
 
         internal static string _input = "";
+        internal static string _lastFunction = "";
 
         public static void UpdateNumber(MainWindow mainWindow, string func)
         {
-            if(_isPressingNumbers)
+
+            
+
+            if (_isPressingNumbers)
             {
-                if(_input == "")
+                
+                if (_input == "" && func != "=")
                 {
+                    _lastFunction = func;//adding function ( + - x : )
+                    //MessageBox.Show(_lastFunction);
                     _input = mainWindow.display.Text + " " + func;
                     mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
                 }
                 else
                 {
                     _input += " " + mainWindow.display.Text;
+                    _lastFunction += " " + mainWindow.display.Text; //adding the last number to operate with
+                    //MessageBox.Show(_lastFunction);
                     mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
                     mainWindow.display.Text = Result(_input);
-                    _input = mainWindow.display.Text + " " + func;
+                    
+                    if (func != "=")
+                    {
+                        _input = mainWindow.display.Text + " " + func;
+                    }
                 }
-               
 
             }
             else if (_isPressingfunction)
             {
-                //_input = _input.Remove(_input.Length - 1, 1);
-                _input = ExtractNumericalPart(_input);
-                _input += func;
-                mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
+
+                
+
+                if (mainWindow.display.Text == "0" || mainWindow.display.Text == "Nulou se dělit nedá!")
+                {
+                    _input = "0" + " " + func;
+                    mainWindow.display.Text = "0";
+                    mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
+                }
+                else
+                {
+                    if (func == "!=")
+                    {
+                        _input = ExtractNumericalPart(_input);
+                        _input += " " + func;
+                        mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
+                    }
+                    else if (func == "=")
+                    {
+                        _input = mainWindow.display.Text + " " + _lastFunction;//
+                        mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
+                        mainWindow.display.Text = Result(_input);
+                    }
+                   
+                    
+                }
+                 
             }
             
         }
@@ -52,10 +87,12 @@ namespace Calc
         {
             if (input.Contains("×")) { input = input.Replace("×", "*"); }
             if (input.Contains("÷")) { input = input.Replace("÷", "/"); }
-            if (input.Contains("—")) { input = input.Replace("—", "-"); }
+            if (input.Contains("−")) { input = input.Replace("−", "-"); }
+            if (input.Contains(",")) { input = input.Replace(",", "."); }
+            if (input.Contains("/ 0")) { return "Nulou se dělit nedá!"; }
 
             DataTable table = new DataTable();
-            MessageBox.Show(input); //TEST
+            //MessageBox.Show(input); //TEST
             table.Columns.Add("expression", typeof(string), input);
             DataRow row = table.NewRow();
             table.Rows.Add(row);
@@ -69,12 +106,12 @@ namespace Calc
 
         public static string historyDisplayCorrection(string input) 
         {
-            if (input.Contains("—")) { return input.Replace("—", "-"); }
+            if (input.Contains("−")) { return input.Replace("−", "-"); }
             else { return input; }
         }
         public static string ExtractNumericalPart(string input)
         {
-            Regex regex = new Regex(@"(-?\d+)");
+            Regex regex = new Regex(@"(-?\d+(?:,\d+)?)");
             Match match = regex.Match(input);
 
             if (match.Success)

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Calc.view.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
-        <Button Grid.Column="0" Name="btnTopFunc" Margin="0.5" Background="#5c5c5b"  Content="{Binding contentFill}" FontSize="{Binding sizeFill}" Foreground="White" BorderThickness="0" Click="btnTopFunc_Click" />
+    <Button Grid.Column="0" Name="btnTopFunc" Margin="0.5" Background="#5c5c5b"  Content="{Binding contentFill}" FontSize="{Binding sizeFill}" FontFamily="Segoe UI" Foreground="White" BorderThickness="0" Click="btnTopFunc_Click" />
 
     
 </UserControl>

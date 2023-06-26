@@ -52,6 +52,7 @@ namespace Calc.view.UserControls
 
             DoMath._isPressingNumbers = true;
 
+            ZeroDivideHandle:
             if(window.display.Text == "0" && !window.display.Text.Contains(","))
             {
                 if (button.Content.ToString() == ",")
@@ -73,6 +74,15 @@ namespace Calc.view.UserControls
                         DoMath._isPressingfunction = false;
                     }
                 }
+                else
+                {
+                    window.display.Text = "";
+                    window.displayHistory.Text = "";
+                    DoMath._isPressingfunction = false;
+                    DoMath._input = "";
+                    goto ZeroDivideHandle;
+                }
+
             }
         }
     }
