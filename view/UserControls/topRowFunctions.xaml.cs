@@ -69,8 +69,8 @@ namespace Calc.view.UserControls
                 case "±":
                     if (window.display.Text != "0")
                     {
+                        DoMath._isPressingfunction = false;
                         DoMath._input = (Convert.ToDouble(window.display.Text) * -1).ToString();
-                        //MessageBox.Show(DoMath._input); //TEST
                         window.display.Text = DoMath._input;
                     }
                     

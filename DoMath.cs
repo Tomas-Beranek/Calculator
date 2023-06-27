@@ -17,6 +17,7 @@ namespace Calc
 
         internal static bool _isPressingfunction = false;
         internal static bool _isPressingNumbers = false;
+        internal static bool _isShowResult = false;
 
         internal static string _input = "";
         internal static string _lastFunction = "";
@@ -24,7 +25,6 @@ namespace Calc
         public static void UpdateNumber(MainWindow mainWindow, string func)
         {
 
-            
 
             if (_isPressingNumbers)
             {
@@ -39,11 +39,11 @@ namespace Calc
                 else
                 {
                     _input += " " + mainWindow.display.Text;
+                    _lastFunction = _lastFunction.Length>2 ? _lastFunction.Substring(0, 2) : _lastFunction;
                     _lastFunction += " " + mainWindow.display.Text; //adding the last number to operate with
                     //MessageBox.Show(_lastFunction);
                     mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
                     mainWindow.display.Text = Result(_input);
-                    
                     if (func != "=")
                     {
                         _input = mainWindow.display.Text + " " + func;
@@ -64,15 +64,18 @@ namespace Calc
                 }
                 else
                 {
-                    if (func == "!=")
+                    if (func != "=")
                     {
-                        _input = ExtractNumericalPart(_input);
+                        //_input = ExtractNumericalPart(_input);
+
+                        _input = mainWindow.display.Text;
                         _input += " " + func;
                         mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
                     }
                     else if (func == "=")
                     {
                         _input = mainWindow.display.Text + " " + _lastFunction;//
+                        //MessageBox.Show(_lastFunction);
                         mainWindow.displayHistory.Text = historyDisplayCorrection(_input);
                         mainWindow.display.Text = Result(_input);
                     }
@@ -83,6 +86,7 @@ namespace Calc
             }
             
         }
+
         public static string Result(string input)
         {
             if (input.Contains("×")) { input = input.Replace("×", "*"); }
@@ -91,8 +95,9 @@ namespace Calc
             if (input.Contains(",")) { input = input.Replace(",", "."); }
             if (input.Contains("/ 0")) { return "Nulou se dělit nedá!"; }
 
+            //MessageBox.Show(input);
+
             DataTable table = new DataTable();
-            //MessageBox.Show(input); //TEST
             table.Columns.Add("expression", typeof(string), input);
             DataRow row = table.NewRow();
             table.Rows.Add(row);
@@ -100,6 +105,7 @@ namespace Calc
             decimal result = Convert.ToDecimal(row["expression"]);
             if (result % 1 == 0) { result = Math.Truncate(result); }
 
+            _isShowResult = true;
             return result.ToString();
         }
 
@@ -118,7 +124,6 @@ namespace Calc
             {
                 return match.Value;
             }
-
             return string.Empty;
         }
 

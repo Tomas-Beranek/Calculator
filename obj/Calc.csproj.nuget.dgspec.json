@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\beran\\source\\repos\\Calc\\Calc.csproj": {}
+    "C:\\Users\\tomas.beranek\\Source\\Repos\\Tomas-Beranek\\Calculator\\Calc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\beran\\source\\repos\\Calc\\Calc.csproj": {
+    "C:\\Users\\tomas.beranek\\Source\\Repos\\Tomas-Beranek\\Calculator\\Calc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\beran\\source\\repos\\Calc\\Calc.csproj",
+        "projectUniqueName": "C:\\Users\\tomas.beranek\\Source\\Repos\\Tomas-Beranek\\Calculator\\Calc.csproj",
         "projectName": "Calc",
-        "projectPath": "C:\\Users\\beran\\source\\repos\\Calc\\Calc.csproj",
-        "packagesPath": "C:\\Users\\beran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\beran\\source\\repos\\Calc\\obj\\",
+        "projectPath": "C:\\Users\\tomas.beranek\\Source\\Repos\\Tomas-Beranek\\Calculator\\Calc.csproj",
+        "packagesPath": "C:\\Users\\tomas.beranek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomas.beranek\\Source\\Repos\\Tomas-Beranek\\Calculator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\beran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tomas.beranek\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

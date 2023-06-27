@@ -53,6 +53,7 @@ namespace Calc.view.UserControls
             DoMath._isPressingNumbers = true;
 
             ZeroDivideHandle:
+            if(DoMath._isShowResult) { DoMath._input = ""; DoMath._lastFunction = ""; window.displayHistory.Text = ""; DoMath._isShowResult = false; }
             if(window.display.Text == "0" && !window.display.Text.Contains(","))
             {
                 if (button.Content.ToString() == ",")
