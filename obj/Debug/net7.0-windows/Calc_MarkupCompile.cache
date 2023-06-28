@@ -5,16 +5,16 @@ winexe
 C#
 .cs
 C:\Users\tomas.beranek\Source\Repos\Tomas-Beranek\Calculator\obj\Debug\net7.0-windows\
-Calc
+Calc_j44h15gk_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET7_0;NETCOREAPP
+TRACE;RELEASE;NET;NET7_0;NETCOREAPP
 C:\Users\tomas.beranek\Source\Repos\Tomas-Beranek\Calculator\App.xaml
 4-1562439327
 
-7-1338267605
-1981871740104
+132076838180
+396-551487088
 MainWindow.xaml;view\UserControls\numberPad.xaml;view\UserControls\rightColumnFunctions.xaml;view\UserControls\topRowFunctions.xaml;
 
-False
+True
 

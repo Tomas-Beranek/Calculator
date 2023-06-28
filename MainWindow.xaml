@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Calc"
         xmlns:UserControls="clr-namespace:Calc.view.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="400" Background="#2b2b2b" MinHeight="450" MinWidth="300">
+        Title="The Calculator" Height="550" Width="400" Background="#2b2b2b" MinHeight="450" MinWidth="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
