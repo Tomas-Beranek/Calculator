@@ -15,7 +15,7 @@ namespace Calc.view.UserControls
             InitializeComponent();
             btnTopFunc.FontSize = 25;
         }
-
+        
         private string contentFill;
         public string ContentFill
         {
@@ -40,10 +40,6 @@ namespace Calc.view.UserControls
             }
         }
 
-
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -55,8 +51,6 @@ namespace Calc.view.UserControls
         {
             Button button = (Button)sender;
             var window = Window.GetWindow(this) as MainWindow;
-
-            
 
             switch (button.Content.ToString())
             {
@@ -73,7 +67,6 @@ namespace Calc.view.UserControls
                         DoMath._input = (Convert.ToDouble(window.display.Text) * -1).ToString();
                         window.display.Text = DoMath._input;
                     }
-                    
                     break;
                 case "%":
                     DoMath._isPressingfunction = true;

@@ -37,13 +37,11 @@ namespace Calc.view.UserControls
             }
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
 
         private void btnNum_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +51,7 @@ namespace Calc.view.UserControls
             DoMath._isPressingNumbers = true;
 
             ZeroDivideHandle:
-            if(DoMath._isShowResult) { DoMath._input = ""; DoMath._lastFunction = ""; window.displayHistory.Text = ""; DoMath._isShowResult = false; }
+            if(DoMath._isShowResult && DoMath._EqualsPressed) { DoMath._input = ""; DoMath._lastFunction = ""; window.displayHistory.Text = ""; DoMath._isShowResult = false; }//reset displaye
             if(window.display.Text == "0" && !window.display.Text.Contains(","))
             {
                 if (button.Content.ToString() == ",")
