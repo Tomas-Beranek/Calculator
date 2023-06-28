@@ -6,7 +6,7 @@
 
 <ul>
   <li>Mac OS-inspired design: The calculator interface is designed to resemble the sleek and minimalist look of Mac OS calculators.</li>
-  <li>Comprehensive functionality: Most of the standard calculator functions are available, allowing users to perform basic arithmetic operations (currently with minor problems).</li>
+  <li>Comprehensive functionality: Most of the standard calculator functions are available, allowing users to perform basic arithmetic operations (currently with minor issues).</li>
   <li>Utilization of DataTable: The calculator employs DataTable for carrying out calculations, ensuring accurate and efficient mathematical operations.</li>
   <li>MVVM technology: Throughout the development process, I familiarized myself with the fundamentals of MVVM (Model-View-ViewModel) architecture, which provides a structured and maintainable approach to building WPF applications.</li>
 </ul>
