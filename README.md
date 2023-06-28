@@ -1,4 +1,4 @@
-<h1>Mac OS Calculator</h1>
+<h1>Mac OS like Calculator</h1>
 
 <p>This project is a Mac OS-inspired calculator created using .NET 7 WPF in Visual Studio. It provides a variety of functions and features similar to those found in the Mac OS calculator. The calculator utilizes the power of DataTable for performing calculations. Additionally, during the development process, I gained a basic understanding of MVVM technology.</p>
 
